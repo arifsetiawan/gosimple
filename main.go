@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
+	"gopkg.in/natefinch/lumberjack.v2"
+
 	"github.com/couchbase/gocb"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/engine/standard"
@@ -128,7 +130,13 @@ func main() {
 	}
 
 	e := echo.New()
-	e.Use(middleware.Logger())
+	//e.Use(middleware.Logger())
+	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
+		Output: &lumberjack.Logger{
+			Filename: "/Users/arifsetiawan/Repository/Logs/gosimple/echo.log",
+			MaxSize:  2,
+		},
+	}))
 	e.Use(middleware.Recover())
 
 	e.GET("/", home)
