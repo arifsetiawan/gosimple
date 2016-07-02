@@ -1,0 +1,8 @@
+package: github.com/arifsetiawan/gosimple
+import:
+- package: github.com/couchbase/gocb
+- package: github.com/labstack/echo
+  subpackages:
+  - engine/standard
+  - middleware
+- package: gopkg.in/natefinch/lumberjack.v2

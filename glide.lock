@@ -1,0 +1,40 @@
+hash: 4e163b54037498ca93d69da878b4e630927a4b32d5fc3e2fd1c5366bf0cd9f9e
+updated: 2016-07-02T10:00:02.983192857+07:00
+imports:
+- name: github.com/couchbase/gocb
+  version: c1ce858361cb597fbfb1dac90b26229da665102f
+  subpackages:
+  - gocbcore
+  - jsonx
+- name: github.com/dgrijalva/jwt-go
+  version: f0777076321ab64f6efc15a82d9d23b98539b943
+- name: github.com/labstack/echo
+  version: c00d017178d23261895b096b6e39e9b6bbca37dc
+  subpackages:
+  - engine/standard
+  - middleware
+  - engine
+  - log
+- name: github.com/labstack/gommon
+  version: 722aa12d41c236ce78ff48eac1cafe0107ecdc9d
+  subpackages:
+  - log
+  - bytes
+  - color
+- name: github.com/mattn/go-colorable
+  version: 9056b7a9f2d1f2d96498d6d146acd1f9d5ed3d59
+- name: github.com/mattn/go-isatty
+  version: 56b76bdf51f7708750eac80fa38b952bb9f32639
+- name: github.com/valyala/fasttemplate
+  version: 3b874956e03f1636d171bda64b130f9135f42cff
+- name: golang.org/x/net
+  version: b400c2eff1badec7022a8c8f5bea058b6315eed7
+  subpackages:
+  - context
+- name: golang.org/x/sys
+  version: 62bee037599929a6e9146f29d10dd5208c43507d
+  subpackages:
+  - unix
+- name: gopkg.in/natefinch/lumberjack.v2
+  version: 514cbda263a734ae8caac038dadf05f8f3f9f738
+devImports: []
