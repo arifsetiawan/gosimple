@@ -25,14 +25,20 @@ See [here](https://github.com/couchbase/docker/tree/master/enterprise/couchbase-
 
 Replace `localhost` with your docker machine ip. Use `docker-machine ip default` (default is docker-machine name, it might be differ). Depending on your host spec, you can custom RAM Quota. 
 
-## Go -> Couchbase
+### Couchbase bucket
 
 Go to Couchbase dashboard at http://192.168.99.100:8091/. Create new bucket: gobase and use password: Test1234
 
 ## Code editor
 
-I use [Visual Studio Code](https://code.visualstudio.com/). Install Go language plugin. 
+I use [Visual Studio Code](https://code.visualstudio.com/). Install [Go language plugin](https://github.com/Microsoft/vscode-go).
+
+**Note** Install delve manually to get the latest from repo. It fix some issues when debugging echo. 
 
 ## API Standard
 
 See [jsonapi](http://jsonapi.org/)
+
+## Dependencies
+
+Install [glide](https://github.com/Masterminds/glide) and then `glide install`
