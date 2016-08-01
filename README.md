@@ -70,8 +70,20 @@ GOBASE_COUCHBASEURI=couchbase://192.168.99.101 ./gosimple
 
 ## Log
 
-Using https://github.com/Sirupsen/logrus. Logrus encourages careful, structured logging though logging fields instead of long, unparseable error messages. We will parse logs in ELK stack.
+Using https://github.com/Sirupsen/logrus. Logrus encourages careful, structured logging though logging fields instead of long, unparseable error messages. We will store and search logs in ELK stack, so log mindfully!
 
 ## Docker
 
+Following command will build Docker container will current dependencies and run it.
 
+```
+docker build -t gosimple .
+```
+
+```
+docker run -p 4000:4000 -it --rm --name gosimple-test gosimple:latest
+```
+
+**Note** 
+* We need to improve this to run app as daemon
+* For development, we might want different approach where we don't have to download all dependencies each build
