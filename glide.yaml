@@ -1,8 +1,10 @@
 package: github.com/arifsetiawan/gosimple
 import:
+- package: github.com/Sirupsen/logrus
 - package: github.com/couchbase/gocb
 - package: github.com/labstack/echo
   subpackages:
   - engine/standard
   - middleware
+- package: github.com/spf13/viper
 - package: gopkg.in/natefinch/lumberjack.v2

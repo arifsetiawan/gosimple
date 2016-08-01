@@ -1,40 +1,72 @@
 hash: 4e163b54037498ca93d69da878b4e630927a4b32d5fc3e2fd1c5366bf0cd9f9e
-updated: 2016-07-02T10:00:02.983192857+07:00
+updated: 2016-08-01T15:01:54.618348612+07:00
 imports:
+- name: github.com/BurntSushi/toml
+  version: 99064174e013895bbd9b025c31100bd1d9b590ca
 - name: github.com/couchbase/gocb
-  version: c1ce858361cb597fbfb1dac90b26229da665102f
+  version: c30d3a7562e0f93379ca5699fa3d24929ba75aad
   subpackages:
   - gocbcore
   - jsonx
 - name: github.com/dgrijalva/jwt-go
-  version: f0777076321ab64f6efc15a82d9d23b98539b943
+  version: 63734eae1ef55eaac06fdc0f312615f2e321e273
+- name: github.com/fsnotify/fsnotify
+  version: a8a77c9133d2d6fd8334f3260d06f60e8d80a5fb
+- name: github.com/hashicorp/hcl
+  version: d8c773c4cba11b11539e3d45f93daeaa5dcf1fa1
+  subpackages:
+  - hcl/ast
+  - hcl/parser
+  - hcl/token
+  - json/parser
+  - hcl/scanner
+  - hcl/strconv
+  - json/scanner
+  - json/token
 - name: github.com/labstack/echo
-  version: c00d017178d23261895b096b6e39e9b6bbca37dc
+  version: 8fc833b4d5ce7661fd9ff64dee028da153531779
   subpackages:
   - engine/standard
   - middleware
   - engine
   - log
 - name: github.com/labstack/gommon
-  version: 722aa12d41c236ce78ff48eac1cafe0107ecdc9d
+  version: 445cf40e6de4cbef35daf3285ff5212c91e78262
   subpackages:
   - log
   - bytes
   - color
+  - random
+- name: github.com/magiconair/properties
+  version: b3f6dd549956e8a61ea4a686a1c02a33d5bdda4b
 - name: github.com/mattn/go-colorable
-  version: 9056b7a9f2d1f2d96498d6d146acd1f9d5ed3d59
+  version: ed8eb9e318d7a84ce5915b495b7d35e0cfe7b5a8
 - name: github.com/mattn/go-isatty
   version: 56b76bdf51f7708750eac80fa38b952bb9f32639
+- name: github.com/mitchellh/mapstructure
+  version: 21a35fb16463dfb7c8eee579c65d995d95e64d1e
+- name: github.com/Sirupsen/logrus
+  version: a283a10442df8dc09befd873fab202bf8a253d6a
+- name: github.com/spf13/cast
+  version: e31f36ffc91a2ba9ddb72a4b6a607ff9b3d3cb63
+- name: github.com/spf13/jwalterweatherman
+  version: 33c24e77fb80341fe7130ee7c594256ff08ccc46
+- name: github.com/spf13/pflag
+  version: 1560c1005499d61b80f865c04d39ca7505bf7f0b
+- name: github.com/spf13/viper
+  version: b53595fb56a492ecef90ee0457595a999eb6ec15
 - name: github.com/valyala/fasttemplate
   version: 3b874956e03f1636d171bda64b130f9135f42cff
 - name: golang.org/x/net
-  version: b400c2eff1badec7022a8c8f5bea058b6315eed7
+  version: 35028a49ca5a73b486af60cd20ac21cd6b67bfdb
   subpackages:
   - context
 - name: golang.org/x/sys
-  version: 62bee037599929a6e9146f29d10dd5208c43507d
+  version: a646d33e2ee3172a661fc09bca23bb4889a41bc8
   subpackages:
   - unix
 - name: gopkg.in/natefinch/lumberjack.v2
   version: 514cbda263a734ae8caac038dadf05f8f3f9f738
+- name: gopkg.in/yaml.v2
+  version: e4d366fc3c7938e2958e662b4258c7a89e1f0e3e
 devImports: []

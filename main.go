@@ -7,13 +7,21 @@ import (
 
 	"gopkg.in/natefinch/lumberjack.v2"
 
+	"github.com/Sirupsen/logrus"
 	"github.com/couchbase/gocb"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/engine/standard"
 	"github.com/labstack/echo/middleware"
+	"github.com/spf13/viper"
 )
 
+var log = logrus.New()
 var bucket *gocb.Bucket
+
+func init() {
+	log.Formatter = new(logrus.JSONFormatter)
+	log.Level = logrus.DebugLevel
+}
 
 // Error object
 type Error struct {
@@ -117,23 +125,34 @@ func deleteUser(c echo.Context) error {
 
 func main() {
 
-	cluster, err := gocb.Connect("couchbase://192.168.99.100")
+	initializeConfig()
+
+	fmt.Println(viper.GetString("CouchbaseURI"))
+	fmt.Println(viper.GetString("CouchbaseBucket"))
+
+	cluster, err := gocb.Connect(viper.GetString("CouchbaseURI"))
 	if err != nil {
-		fmt.Println("Error", err)
+		log.WithFields(logrus.Fields{
+			"app": "gobase",
+			"err": err,
+		}).Fatal("Failed to connect to database!")
 		return
 	}
 
-	bucket, err = cluster.OpenBucket("gobase", "Test1234")
+	bucket, err = cluster.OpenBucket(
+		viper.GetString("CouchbaseBucket"), viper.GetString("CouchbasePassword"))
 	if err != nil {
-		fmt.Println("Error", err)
+		log.WithFields(logrus.Fields{
+			"app": "gobase",
+			"err": err,
+		}).Fatal("Failed to open bucket!")
 		return
 	}
 
 	e := echo.New()
-	//e.Use(middleware.Logger())
 	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
 		Output: &lumberjack.Logger{
-			Filename: "/Users/arifsetiawan/Repository/Logs/gosimple/echo.log",
+			Filename: viper.GetString("LogPath"),
 			MaxSize:  2,
 		},
 	}))
@@ -146,5 +165,9 @@ func main() {
 	e.DELETE("/users/:email", deleteUser)
 	e.GET("/users", listUsers)
 
-	e.Run(standard.New(":1323"))
+	log.WithFields(logrus.Fields{
+		"app": "gobase",
+	}).Debug("App listening to " + viper.GetString("Port"))
+
+	e.Run(standard.New(viper.GetString("Port")))
 }

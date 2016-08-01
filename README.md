@@ -41,4 +41,37 @@ See [jsonapi](http://jsonapi.org/)
 
 ## Dependencies
 
-Install [glide](https://github.com/Masterminds/glide) and then `glide install`
+Install [glide](https://github.com/Masterminds/glide) and then `glide install`.
+
+To update `glide.yaml`, delete `glide.yaml` then `glide init`.
+
+To update `glide.lock`, do `glide update`.
+
+## Configuration
+
+Using viper (https://github.com/spf13/viper) to handle configuration. For now, I only use environment variable. 
+
+## Run
+
+To run 
+```
+go run *.go
+```
+
+or
+```
+go build && ./gosimple
+```
+
+Change configuration 
+```
+GOBASE_COUCHBASEURI=couchbase://192.168.99.101 ./gosimple 
+```
+
+## Log
+
+Using https://github.com/Sirupsen/logrus. Logrus encourages careful, structured logging though logging fields instead of long, unparseable error messages. We will parse logs in ELK stack.
+
+## Docker
+
+
